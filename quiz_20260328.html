@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quiz</title>
+<link rel="stylesheet" href="style_20260328.css">
+</head>
+<body>
+
+<a href="index_20260328.html" class="back-btn">⬅ Home</a>
+
+<h1>Quiz for Rupavathy</h1>
+
+<form method="POST">
+    {% for i, q in enumerate(questions) %}
+        <label>{{ q.q }}</label><br>
+        <input type="text" name="q{{i}}" required><br><br>
+    {% endfor %}
+    <button type="submit" class="btn">Submit</button>
+</form>
+
+{% if score is not none %}
+    <p>You scored {{score}} / {{questions|length}}</p>
+    {% if score < questions|length %}
+        <p>Try again for the surprise! 💖</p>
+    {% endif %}
+{% endif %}
+
+</body>
+</html>
